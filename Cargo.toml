@@ -1,0 +1,18 @@
+[package]
+name = "skyhop"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "=0.20.1", default-features = false, features = ["3d", "ui", "keyboard", "mouse"] }
+directories = "=6.0.0"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
